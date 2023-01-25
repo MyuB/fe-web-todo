@@ -1,0 +1,75 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.trigger {
+  display: block;
+  flex-direction: column;
+  width: 1.5rem;
+  height: 0.875rem;
+  top: calc(0.875rem - 1px);
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+
+  button {
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 2rem;
+    top: -0.5rem;
+    left: -1.25rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: $ok-btn-disabled-color;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.05;
+      box-shadow: 1px 1px 10px $cancel-btn-text-color;
+    }
+  }
+}
+
+.trigger span {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  transition: 0.5s;
+}
+
+.trigger span:nth-child(1) {
+  top: 0;
+}
+.trigger span:nth-child(2) {
+  top: 50%;
+  width: 80%;
+}
+.trigger span:nth-child(3) {
+  top: 100%;
+}
+
+.trigger.active span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.trigger.active span:nth-child(2) {
+  display: none;
+}
+.trigger.active span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
