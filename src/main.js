@@ -1,5 +1,5 @@
 import './styles/main.scss';
-import { todoView } from '@/views';
+import { sideBar, todoView } from '@/views';
 import { StatusModel, TaskModel } from '@/models';
 import { bindProcessor, setInlineProperties } from '@/clients';
 import { getTaskCount } from '@/api/task';
@@ -10,6 +10,7 @@ async function init() {
   const taskCount = await getTaskCount();
 
   todoView(taskCount);
+  sideBar();
 
   const binder = bindProcessor('.todo-main');
   const rootViewModel = setInlineProperties(statusList, taskList, binder);

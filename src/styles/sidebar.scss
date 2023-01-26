@@ -1,0 +1,45 @@
+// sidebar section
+.sidebar {
+  height: 100%;
+  width: 500px;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1;
+
+  .empty-wrapper {
+    height: 2rem;
+    position: relative;
+    top: 0;
+    bottom: 0;
+  }
+
+  .close-button {
+    position: relative;
+    display: block;
+    text-align: right;
+    height: 1.75rem;
+    cursor: pointer;
+    width: 100%;
+
+    p {
+      margin-right: 5rem;
+      font-size: 1.65rem;
+    }
+  }
+
+  .logs-wrapper {
+    position: relative;
+    height: calc(880px - 2rem);
+    margin-top: 1.5rem;
+  }
+
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+  z-index: -1;
+}
