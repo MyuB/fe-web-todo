@@ -13,6 +13,7 @@ const ViewModel = class extends ViewModelSubject {
   properties = {};
   classLists = {};
   events = {};
+  logs = {};
   #subKey = '';
   #parent = null;
 

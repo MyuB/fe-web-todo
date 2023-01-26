@@ -4,6 +4,7 @@ import Binder from '@/core/Binder.js';
 import DomVisitor from '@/core/DomVisitor.js';
 import Processor from '@/core/Processor.js';
 import DomScanner from '@/core/DomScanner.js';
+import { addLogsToSideBar } from './taskEvent.js';
 
 /**
  * @param {HTMLElment} target - HTMLElment Type, scan을 시작 할 Element
@@ -50,6 +51,16 @@ export default function bindProcessor(target, _0 = typeCheck(target, 'string')) 
           elem.addEventListener(`${key}`, val(viewModel, elem));
         }
       })('events'),
+    )
+    .next(
+      new (class extends Processor {
+        _process(viewModel, elem, key, val) {
+          console.log(elem);
+          const logObj = val(viewModel, elem)();
+          debugger;
+          addLogsToSideBar(logObj);
+        }
+      })('logs'),
     )
     .next(
       new (class extends Processor {

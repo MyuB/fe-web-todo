@@ -1,5 +1,6 @@
 import { ViewModel } from '@/core';
 import { TaskModel } from '@/models';
+import { log } from '../template/log.js';
 
 export function onKeyupTaskData(isActive, data) {
   return ViewModel.get({
@@ -114,7 +115,30 @@ export function onClickNewSubmitButton() {
         TaskModel.addTaskCard(statusName, taskId, taskTitle, taskContent);
       },
     },
+    logs: {
+      add: (viewModel, elem) => (e) => {
+        const viewModelParent = viewModel.parent;
+        const taskTitle = viewModelParent.newTaskTitle.properties.innerHTML;
+        const taskContent = viewModelParent.newTaskContent.properties.innerHTML;
+        const column = elem.closest('.todo-article');
+        const taskColumn = column.querySelector('h3').innerHTML;
+        debugger;
+        const logEl = {
+          taskTitle: taskTitle,
+          taskColumn: taskColumn,
+          action: 'ADD',
+        };
+        return logEl;
+      },
+    },
   });
+}
+
+export function addLogsToSideBar({ taskTitle, taskColumn, action }) {
+  const logsWrapper = document.querySelector('.logs-wrapper');
+  const logParams = { where: taskColumn, what: taskTitle, to: null, action };
+  debugger;
+  logsWrapper.insertAdjacentHTML('afterend', log(logParams));
 }
 
 function toggleActive(viewModelParent) {
