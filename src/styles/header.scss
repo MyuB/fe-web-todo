@@ -49,17 +49,17 @@
   width: 100%;
   background-color: black;
   transition: 0.5s;
-}
 
-.trigger span:nth-child(1) {
-  top: 0;
-}
-.trigger span:nth-child(2) {
-  top: 50%;
-  width: 80%;
-}
-.trigger span:nth-child(3) {
-  top: 100%;
+  &:nth-child(1) {
+    top: 0;
+  }
+  &:nth-child(2) {
+    top: 50%;
+    width: 80%;
+  }
+  &:nth-child(3) {
+    top: 100%;
+  }
 }
 
 .trigger.active span:nth-child(1) {
