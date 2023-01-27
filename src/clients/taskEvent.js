@@ -122,7 +122,7 @@ export function onClickNewSubmitButton() {
         const taskContent = viewModelParent.newTaskContent.properties.innerHTML;
         const column = elem.closest('.todo-article');
         const taskColumn = column.querySelector('h3').innerHTML;
-        debugger;
+        if (taskTitle === null) return;
         const logEl = {
           taskTitle: taskTitle,
           taskColumn: taskColumn,
@@ -137,8 +137,6 @@ export function onClickNewSubmitButton() {
 export function addLogsToSideBar({ taskTitle, taskColumn, action }) {
   const logsWrapper = document.querySelector('.logs-wrapper');
   const logParams = { where: taskColumn, what: taskTitle, to: null, action };
-  debugger;
-  logsWrapper.insertAdjacentHTML('afterend', log(logParams));
 }
 
 function toggleActive(viewModelParent) {

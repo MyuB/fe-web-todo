@@ -55,9 +55,7 @@ export default function bindProcessor(target, _0 = typeCheck(target, 'string')) 
     .next(
       new (class extends Processor {
         _process(viewModel, elem, key, val) {
-          console.log(elem);
           const logObj = val(viewModel, elem)();
-          debugger;
           addLogsToSideBar(logObj);
         }
       })('logs'),
